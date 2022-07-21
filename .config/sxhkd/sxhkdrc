@@ -1,0 +1,59 @@
+# To spawn the terminal
+alt + Return
+    kitty
+
+# make sxhkd reload its configuration files:
+alt + Escape
+    pkill -USR1 -x sxhkd
+
+# for rofi
+alt + d
+    rofi -show drun
+
+super + shift + s
+    gscreenshot -s -c
+
+# send the window to the given desktop
+alt + {_,shift + }{1-9,0}
+	bspc {desktop -f,node -d} '^{1-9,10}'
+
+# close and kill 
+alt + q
+    bspc node -{c}
+ctrl + x
+    rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
+# swap the current node and the biggest window
+super + g
+	bspc node -s biggest.window
+
+# preselect the direction
+alt + ctrl + {h,j,k,l}
+    bspc node -p {west,south,north,east}
+
+# focus the node in the given direction
+alt + {_,shift + }{h,j,k,l}
+	bspc node -{f,s} {west,south,north,east}
+
+# i3 like resizing
+alt + super + h
+    /bin/sh $HOME/.config/bspwm/resize/shrinkx.sh
+alt + super + l
+    /bin/sh $HOME/.config/bspwm/resize/expandx.sh
+alt + super + k
+    /bin/sh $HOME/.config/bspwm/resize/shrinky.sh
+alt + super + j
+    /bin/sh $HOME/.config/bspwm/resize/expandy.sh
+
+# change window states
+alt + {t,shift + t,s,f}
+  bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
+
+# Navigate layouts
+alt + {_,shift + }space
+	bspc desktop --layout {next,prev}
+
+
+# quit/restart bspwm
+shift + alt + {q,r}
+  bspc {quit,wm -r}
+ 
