@@ -20,7 +20,7 @@ alt + {_,shift + }{1-9,0}
 # close and kill 
 alt + q
     bspc node -{c}
-ctrl + x
+ctrl + shift + x
     rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
 # swap the current node and the biggest window
 super + g
