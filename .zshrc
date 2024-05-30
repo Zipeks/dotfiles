@@ -74,7 +74,6 @@ plugins=(
     git
     vscode
     man
-
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -110,7 +109,7 @@ wal-tile() {
 alias imwheel="killall imwheel; wait; imwheel"
 alias zshconfig="code ~/.zshrc"
 alias -g gp="grep"
-alias ls="exa -l"
+alias ls="eza -l" #https://github.com/eza-community/eza
 alias ..="cd .."
 alias gh='history|grep'
 alias mv='mv -i'
@@ -134,13 +133,14 @@ zle -N down-line-or-beginning-search
 [[ -n "${key[Down]}" ]] && bindkey -- "${key[Down]}" down-line-or-beginning-search
 
 
-eval "$(zoxide init zsh)"
+# eval "$(zoxide init zsh)"
 
 
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-source /usr/share/zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+# source /usr/share/zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+source /home/zipeks/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
