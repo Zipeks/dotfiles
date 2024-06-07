@@ -2,10 +2,11 @@
 
 THEME="idiot_nerd"
 
-killall polybar
+killall -q polybar
 while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 
-CONFIG_DIR=/home/mateusz/.config/polybar/$THEME/config.ini
+CONFIG_DIR=~/.config/polybar/$THEME/config.ini
+#CONFIG_DIR = ~/.config/polybar.old/config.ini
 #polybar main -c $CONFIG_DIR &
-polybar Virtual1 -c $CONFIG_DIR &
-polybar Virtual2 -c $CONFIG_DIR &
+polybar DP-2 -c $CONFIG_DIR &
+polybar DP-0 -c  $CONFIG_DIR &
