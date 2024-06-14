@@ -1,17 +1,3 @@
-    
-#       █████████     ███████    ███████████ █████ █████ ███████████ █████ █████       ██████████
-#      ███░░░░░███  ███░░░░░███ ░█░░░░░░███ ░░███ ░░███ ░█░░░███░░░█░░███ ░░███       ░░███░░░░░█
-#     ███     ░░░  ███     ░░███░     ███░   ░░███ ███  ░   ░███  ░  ░███  ░███        ░███  █ ░ 
-#    ░███         ░███      ░███     ███      ░░█████       ░███     ░███  ░███        ░██████   
-#    ░███         ░███      ░███    ███        ░░███        ░███     ░███  ░███        ░███░░█   
-#    ░░███     ███░░███     ███   ████     █    ░███        ░███     ░███  ░███      █ ░███ ░   █
-#     ░░█████████  ░░░███████░   ███████████    █████       █████    █████ ███████████ ██████████
-#      ░░░░░░░░░     ░░░░░░░    ░░░░░░░░░░░    ░░░░░       ░░░░░    ░░░░░ ░░░░░░░░░░░ ░░░░░░░░░░ 
-#
-#                                                                                    - DARKKAL44
-  
-
-
 from libqtile import bar, layout, widget, hook, qtile
 from libqtile.config import Click, Drag, Group, Key, Match, hook, Screen, KeyChord
 from libqtile.lazy import lazy
@@ -21,6 +7,7 @@ from time import sleep
 
 mod = "mod4"
 terminal = "kitty"
+file_manager = "nemo"
 
 # █▄▀ █▀▀ █▄█ █▄▄ █ █▄░█ █▀▄ █▀
 # █░█ ██▄ ░█░ █▄█ █ █░▀█ █▄▀ ▄█
@@ -37,7 +24,16 @@ keys = keybinds()
 
 
 
-groups = [Group(f"{i+1}", label="●") for i in range(8)]
+groups = [Group("1", label="●",matches=[Match(wm_class="firefox")]),
+          Group("2", label="●",matches=[Match(wm_class="code")]),
+          Group("3", label="●"),
+          Group("4", label="●",layout="floating",matches=[Match(wm_class="steam"),Match(wm_class="heroic"),Match(wm_class="lutris")]),
+          Group("5", label="●",matches=[Match(wm_class="discord")]),
+          Group("6", label="●",matches=[Match(wm_class="gimp")]),
+          Group("7", label="●"),
+          Group("8", label="●"),
+          Group("9", label="●"),
+          Group("0", label="●"),]
 
 for i in groups:
     keys.extend(
@@ -62,14 +58,15 @@ for i in groups:
 from libqtile.config import Group, ScratchPad, DropDown, Key
 import re
 groups.append(ScratchPad("scratchpad", [
-    DropDown("spotify", "flatpak run com.spotify.Client", width = 0.8, height = 0.8, x = 0.1, y = 0.1, opacity = 1)
-    # DropDown("spotify","flatpak run com.spotify.Spotify", match=Match(wm_class=['Spotify']) opacity=1, height=0.8, width=0.8,x=0.1,y=0.1)
+    DropDown("spotify", "flatpak run com.spotify.Client",match=Match(wm_class=re.compile(r"^(Spotify)$")), width = 0.8, height = 0.8, x = 0.1, y = 0.1, opacity = 1),  
+    DropDown("file_manager", f"{file_manager}", width = 0.8, height = 0.8, x = 0.1, y = 0.1, opacity = 1),  
+    
 ]))
-#Match(wm_class=re.compile(r"^(Spotify)$")),
 
 
 keys.extend([
-    Key([mod],"s",lazy.group['scratchpad'].dropdown_toggle('spotify'))
+    Key([],"F4",lazy.group['scratchpad'].dropdown_toggle('spotify')),
+    Key([mod],"e",lazy.group['scratchpad'].dropdown_toggle('file_manager'))
 ])
 
 
@@ -88,6 +85,7 @@ layouts = [
         border_focus=color_focused,
 	    border_normal=color_normal,
         border_width=5,
+        initial_ratio=1.6
     ),
 
     # layout.Max(	    
@@ -150,7 +148,7 @@ mouse = [
 
 dgroups_key_binder = None
 dgroups_app_rules = []  # type: list
-follow_mouse_focus = True
+follow_mouse_focus = False
 bring_front_click = False
 cursor_warp = False
 floating_layout = layout.Floating(
@@ -179,8 +177,6 @@ import subprocess
 # stuff
 @hook.subscribe.startup_once
 def autostart_once():
-    # subprocess.run('~/.config/qtile/autostart_once.sh')# path to my script, under my user directory
-    # subprocess.call([home])
     home = os.path.expanduser('~/.config/qtile/autostart_once.sh')
     subprocess.call([home])
 auto_fullscreen = True
