@@ -27,10 +27,10 @@ keys = keybinds()
 groups = [Group("1", label="●",matches=[Match(wm_class="firefox")]),
           Group("2", label="●",matches=[Match(wm_class="code")]),
           Group("3", label="●"),
-          Group("4", label="●",layout="floating",matches=[Match(wm_class="steam"),Match(wm_class="heroic"),Match(wm_class="lutris")]),
+          Group("4", label="●",matches=[Match(wm_class="steam"),Match(wm_class="heroic"),Match(wm_class="lutris")]),
           Group("5", label="●",matches=[Match(wm_class="discord")]),
           Group("6", label="●",matches=[Match(wm_class="gimp")]),
-          Group("7", label="●"),
+          Group("7", label="●",matches=[Match(wm_class="qbittorrent")]),
           Group("8", label="●"),
           Group("9", label="●"),
           Group("0", label="●"),]
@@ -47,8 +47,8 @@ for i in groups:
                 Key(
                     [mod, "shift"],
                     i.name,
-                    lazy.window.togroup(i.name, switch_group=True),
-                    desc="Switch to & move focused window to group {}".format(i.name),
+                    lazy.window.togroup(i.name, switch_group=False),
+                    desc="Move focused window to group {}".format(i.name),
                     ),
                 ]
             )
@@ -60,13 +60,17 @@ import re
 groups.append(ScratchPad("scratchpad", [
     DropDown("spotify", "flatpak run com.spotify.Client",match=Match(wm_class=re.compile(r"^(Spotify)$")), width = 0.8, height = 0.8, x = 0.1, y = 0.1, opacity = 1),  
     DropDown("file_manager", f"{file_manager}", width = 0.8, height = 0.8, x = 0.1, y = 0.1, opacity = 1),  
+    DropDown("bpytop", f"{terminal} -e bpytop", width = 0.8, height = 0.8, x = 0.1, y = 0.1, opacity = 1),  
+    DropDown("terminal", f"{terminal}", width = 0.8, height = 0.8, x = 0.1, y = 0.1, opacity = 1),  
     
 ]))
 
 
 keys.extend([
     Key([],"F4",lazy.group['scratchpad'].dropdown_toggle('spotify')),
-    Key([mod],"e",lazy.group['scratchpad'].dropdown_toggle('file_manager'))
+    Key([mod],"e",lazy.group['scratchpad'].dropdown_toggle('file_manager')),
+    Key([mod],"b",lazy.group['scratchpad'].dropdown_toggle('bpytop')),
+    Key([mod],"t",lazy.group['scratchpad'].dropdown_toggle('terminal')),
 ])
 
 
@@ -149,7 +153,7 @@ mouse = [
 dgroups_key_binder = None
 dgroups_app_rules = []  # type: list
 follow_mouse_focus = False
-bring_front_click = False
+bring_front_click = True
 cursor_warp = False
 floating_layout = layout.Floating(
 	border_focus=color_focused,
@@ -180,7 +184,7 @@ def autostart_once():
     home = os.path.expanduser('~/.config/qtile/autostart_once.sh')
     subprocess.call([home])
 auto_fullscreen = True
-focus_on_window_activation = "smart"
+focus_on_window_activation = "never"
 reconfigure_screens = True
 
 # If things like steam games want to auto-minimize themselves when losing
