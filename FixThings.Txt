@@ -1,0 +1,6 @@
+systemctl --user unmask pipewire.socket                                                                                                                                                                                                                                          ⏎
+systemctl --user restart wireplumber pipewire pipewire-pulse
+
+
+Screen tearing on second monitor with GDM installed:
+Unccoment WaylandEnable=False in /etc/gdm/custom.conf

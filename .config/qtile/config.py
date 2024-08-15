@@ -62,6 +62,7 @@ groups.append(ScratchPad("scratchpad", [
     DropDown("file_manager", f"{file_manager}", width = 0.8, height = 0.8, x = 0.1, y = 0.1, opacity = 1),  
     DropDown("bpytop", f"{terminal} -e bpytop", width = 0.8, height = 0.8, x = 0.1, y = 0.1, opacity = 1),  
     DropDown("terminal", f"{terminal}", width = 0.8, height = 0.8, x = 0.1, y = 0.1, opacity = 1),  
+    # DropDown("calendar", f"{terminal} cal -m -3", width = 0.2, height = 0.2, x = 0.8, y = 0.1, opacity = 1),  
     
 ]))
 
@@ -71,6 +72,7 @@ keys.extend([
     Key([mod],"e",lazy.group['scratchpad'].dropdown_toggle('file_manager')),
     Key([mod],"b",lazy.group['scratchpad'].dropdown_toggle('bpytop')),
     Key([mod],"t",lazy.group['scratchpad'].dropdown_toggle('terminal')),
+    # Key([mod],"l",lazy.group['scratchpad'].dropdown_toggle('calendar')),
 ])
 
 
