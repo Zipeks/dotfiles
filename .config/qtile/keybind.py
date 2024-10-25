@@ -96,7 +96,7 @@ def keybinds():
             lazy.spawn("brightnessctl s 10%-"),
             desc="brightness Down",
         ),
-        # Key([mod],"e", lazy.spawn("nemo"), desc='file manager'),
+        Key([mod],"e", lazy.spawn("nemo"), desc='file manager'),
         Key(
             [mod, "shift"],
             "v",

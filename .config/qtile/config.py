@@ -59,7 +59,7 @@ from libqtile.config import Group, ScratchPad, DropDown, Key
 import re
 groups.append(ScratchPad("scratchpad", [
     DropDown("spotify", "flatpak run com.spotify.Client",match=Match(wm_class=re.compile(r"^(Spotify)$")), width = 0.8, height = 0.8, x = 0.1, y = 0.1, opacity = 1),  
-    DropDown("file_manager", f"{file_manager}", width = 0.8, height = 0.8, x = 0.1, y = 0.1, opacity = 1),  
+    # DropDown("file_manager", f"{file_manager}", width = 0.8, height = 0.8, x = 0.1, y = 0.1, opacity = 1),  
     DropDown("bpytop", f"{terminal} -e bpytop", width = 0.8, height = 0.8, x = 0.1, y = 0.1, opacity = 1),  
     DropDown("terminal", f"{terminal}", width = 0.8, height = 0.8, x = 0.1, y = 0.1, opacity = 1),  
     # DropDown("calendar", f"{terminal} cal -m -3", width = 0.2, height = 0.2, x = 0.8, y = 0.1, opacity = 1),  
@@ -69,7 +69,7 @@ groups.append(ScratchPad("scratchpad", [
 
 keys.extend([
     Key([],"F4",lazy.group['scratchpad'].dropdown_toggle('spotify')),
-    Key([mod],"e",lazy.group['scratchpad'].dropdown_toggle('file_manager')),
+    # Key([mod],"e",lazy.group['scratchpad'].dropdown_toggle('file_manager')),
     Key([mod],"b",lazy.group['scratchpad'].dropdown_toggle('bpytop')),
     Key([mod],"t",lazy.group['scratchpad'].dropdown_toggle('terminal')),
     # Key([mod],"l",lazy.group['scratchpad'].dropdown_toggle('calendar')),
@@ -192,7 +192,6 @@ reconfigure_screens = True
 # If things like steam games want to auto-minimize themselves when losing
 # focus, should we respect this or not?
 auto_minimize = True
-
 # When using the Wayland backend, this can be used to configure input devices.
 wl_input_rules = None
 
