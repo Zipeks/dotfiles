@@ -81,9 +81,9 @@ def keybinds():
         Key([], "F11", lazy.spawn("amixer sset Master 5%+"), desc="Volume Up"),
         Key([], "F10", lazy.spawn("amixer sset Master 5%-"), desc="volme down"),
         Key([], "F9", lazy.spawn("pulsemixer --toggle-mute"), desc="Volume Mute"),
-        # Key([], "F7", lazy.spawn("playerctl play-pause"), desc='playerctl'),
-        # Key([], "F5", lazy.spawn("playerctl previous"), desc='playerctl'),
-        # Key([], "F6", lazy.spawn("playerctl next"), desc='playerctl'),
+        Key([], "F7", lazy.spawn("playerctl play-pause"), desc='Play- Pause'),
+        Key([], "F5", lazy.spawn("playerctl previous"), desc='playerctl'),
+        Key([], "F6", lazy.spawn("playerctl next"), desc='playerctl'),
         Key(
             [],
             "XF86MonBrightnessUp",
@@ -96,6 +96,12 @@ def keybinds():
             lazy.spawn("brightnessctl s 10%-"),
             desc="brightness Down",
         ),
+        # Key(
+        #     [],
+        #     "XF86AudioStop",
+        #     lazy.spawn("playerctl --all-players stop"),
+        #     desc="brightness Down",
+        # ),
         # Key([mod],"e", lazy.spawn("nemo"), desc='file manager'),
         Key(
             [mod, "shift"],
@@ -106,5 +112,5 @@ def keybinds():
             desc="greenclip",
         ),
         Key([mod, "shift"], "s", lazy.spawn("flameshot gui"), desc="Screenshot"),
-        Key([mod], "Escape", lazy.spawn("i3lock -e -c 000000"), desc="Screenshot"),
+        Key([mod], "Escape", lazy.spawn("i3lock -e -c 000000"), desc="Lock Screnn"),
     ]
