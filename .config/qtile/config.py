@@ -59,7 +59,7 @@ from libqtile.config import Group, ScratchPad, DropDown, Key
 import re
 groups.append(ScratchPad("scratchpad", [
     DropDown("spotify", "flatpak run com.spotify.Client",match=Match(wm_class=re.compile(r"^(Spotify)$")), width = 0.8, height = 0.8, x = 0.1, y = 0.1, opacity = 1),  
-    DropDown("file_manager", f"{file_manager}", width = 0.8, height = 0.8, x = 0.1, y = 0.1, opacity = 1),  
+    DropDown("file_manager", f"{terminal} yazi", width = 0.8, height = 0.8, x = 0.1, y = 0.1, opacity = 1),  
     DropDown("bpytop", f"{terminal} -e bpytop", width = 0.8, height = 0.8, x = 0.1, y = 0.1, opacity = 1),  
     DropDown("terminal", f"{terminal}", width = 0.8, height = 0.8, x = 0.1, y = 0.1, opacity = 1),  
     # DropDown("calendar", f"{terminal} cal -m -3", width = 0.2, height = 0.2, x = 0.8, y = 0.1, opacity = 1),  
@@ -87,7 +87,7 @@ layouts = [
 	#     border_width=5,
     # ),
     layout.Columns( 
-        margin= 10, 
+        margin= 2, 
         border_focus=color_focused,
 	    border_normal=color_normal,
         border_width=5,
