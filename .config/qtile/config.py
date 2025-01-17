@@ -69,7 +69,7 @@ groups.append(ScratchPad("scratchpad", [
 
 keys.extend([
     Key([],"F4",lazy.group['scratchpad'].dropdown_toggle('spotify')),
-    Key([mod],"e",lazy.group['scratchpad'].dropdown_toggle('file_manager')),
+    # Key([mod],"e",lazy.group['scratchpad'].dropdown_toggle('file_manager')),
     Key([mod],"b",lazy.group['scratchpad'].dropdown_toggle('bpytop')),
     Key([mod],"t",lazy.group['scratchpad'].dropdown_toggle('terminal')),
     # Key([mod],"l",lazy.group['scratchpad'].dropdown_toggle('calendar')),
@@ -192,7 +192,6 @@ reconfigure_screens = True
 # If things like steam games want to auto-minimize themselves when losing
 # focus, should we respect this or not?
 auto_minimize = True
-
 # When using the Wayland backend, this can be used to configure input devices.
 wl_input_rules = None
 
