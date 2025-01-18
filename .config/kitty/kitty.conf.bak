@@ -2166,13 +2166,10 @@ map shift+cmd+/ open_url https://sw.kovidgoyal.net/kitty/
 
 #: }}}
 
-# include ./kitty-themes/themes/Gruvbox Dark Hard.conf
-# include ./kitty-themes/themes/macchiato.conf
-# include ./kitty-themes/themes/Brogrammer.conf
-# include ./kitty-themes/themes/YsDark.conf
-include ./kitty-themes/themes/Catppuccin-Macchiato.conf
+include ./theme.conf
+
 # BEGIN_KITTY_FONTS
-font_family      family="JetBrainsMono Nerd Font"
+font_family      family="JetBrainsMonoNL Nerd Font"
 bold_font        auto
 italic_font      auto
 bold_italic_font auto
