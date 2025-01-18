@@ -204,3 +204,5 @@ entry {
     border-radius: 2px 2px 2px 2px;
     text-color: #CAA9E0;
   }
+
+@theme "/home/zipeks/.local/share/rofi/themes/squared-everforest.rasi"

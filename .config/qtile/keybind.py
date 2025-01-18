@@ -67,7 +67,7 @@ def keybinds():
         Key(
             [mod],
             "p",
-            lazy.spawn("sh -c ~/.config/rofi/scripts/power"),
+            lazy.spawn("rofi -show power-menu -modi power-menu:rofi-power-menu"),
             desc="powermenu",
         ),
         Key(

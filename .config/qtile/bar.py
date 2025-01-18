@@ -11,7 +11,7 @@ def search():
 
 
 def power():
-    qtile.cmd_spawn("sh -c ~/.config/rofi/scripts/power")
+    qtile.cmd_spawn("rofi -show power-menu -modi power-menu:rofi-power-menu")
 
 
 widget_defaults = dict(
@@ -80,25 +80,25 @@ def spawn_bar():
                         font="JetBrains Mono Bold",
                         fontsize=13,
                     ),
+                    # widget.Image(
+                    #     filename="~/.config/qtile/Assets/5.png",
+                    # ),
+                    # widget.Image(
+                    #     filename="~/.config/qtile/Assets/search.png",
+                    #     margin=2,
+                    #     background=colors[0],
+                    #     mouse_callbacks={"Button1": search},
+                    # ),
+                    # widget.TextBox(
+                    #     fmt="Search",
+                    #     background=colors[0],
+                    #     font="JetBrains Mono Bold",
+                    #     fontsize=13,
+                    #     foreground=colors[2],
+                    #     mouse_callbacks={"Button1": search},
+                    # ),
                     widget.Image(
-                        filename="~/.config/qtile/Assets/5.png",
-                    ),
-                    widget.Image(
-                        filename="~/.config/qtile/Assets/search.png",
-                        margin=2,
-                        background=colors[0],
-                        mouse_callbacks={"Button1": search},
-                    ),
-                    widget.TextBox(
-                        fmt="Search",
-                        background=colors[0],
-                        font="JetBrains Mono Bold",
-                        fontsize=13,
-                        foreground=colors[2],
-                        mouse_callbacks={"Button1": search},
-                    ),
-                    widget.Image(
-                        filename="~/.config/qtile/Assets/4.png",
+                        filename="~/.config/qtile/Assets/1.png",
                     ),
                     widget.WindowName(
                         background=colors[1],
