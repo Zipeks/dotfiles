@@ -205,4 +205,6 @@ entry {
     text-color: #CAA9E0;
   }
 
-@theme "/home/zipeks/.local/share/rofi/themes/squared-everforest.rasi"
+//@theme "/home/zipeks/.local/share/rofi/themes/squared-everforest.rasi"
+
+@theme "/usr/share/rofi/themes/gruvbox-dark-hard.rasi"
