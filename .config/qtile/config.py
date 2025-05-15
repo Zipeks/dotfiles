@@ -4,7 +4,7 @@ from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
 from libqtile.dgroups import simple_key_binder
 from time import sleep
-from os import environ
+import os
 
 mod = "mod4"
 terminal = "kitty"
@@ -189,7 +189,8 @@ layouts = [
 
 # █▄▄ ▄▀█ █▀█
 # █▄█ █▀█ █▀▄
-if environ["SYSTEM"] == "laptop":
+system = "laptop"
+if os.environ.get("SYSTEM", "PC") == "laptop":
     from bar_laptop import spawn_bar
 else:
     from bar import spawn_bar
