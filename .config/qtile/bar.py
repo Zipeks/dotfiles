@@ -166,9 +166,6 @@ def spawn_bar():
                         fontsize=16,
                         update_interval=5,
                     ),
-                    # widget.Image(
-                    # filename='~/.config/qtile/Assets/Drop2.png',
-                    # ),
                     widget.Image(
                         filename="~/.config/qtile/Assets/2.png",
                     ),
@@ -181,12 +178,6 @@ def spawn_bar():
                         length=8,
                         background=colors[1],
                     ),
-                    # widget.Battery(format=' {percent:2.0%}',
-                    # font="JetBrains Mono ExtraBold",
-                    # fontsize=12,
-                    # padding=10,
-                    # background=colors[1],
-                    # ),
                     widget.Volume(
                         font="JetBrainsMonwo monitorso Nerd Font",
                         theme_path="~/.config/qtile/Assets/Volume/",
@@ -208,21 +199,7 @@ def spawn_bar():
                         length=5,
                         background=colors[1],
                     ),
-                    widget.Image(
-                        filename='~/.config/qtile/Assets/1.png',
-                    ),
-                    widget.BatteryIcon(
-                        theme_path='~/.config/qtile/Assets/Battery/',
-                        background=colors[1],
-                        scale=1,
-                    ),
-                    widget.Battery(
-                        font='JetBrains Mono Bold',
-                        background=colors[1],
-                        foreground=colors[2],
-                        format='{percent:2.0%}',
-                        fontsize=13,
-                    ),
+
                     widget.Image(
                         filename="~/.config/qtile/Assets/5.png",
                         background=colors[1],
@@ -304,24 +281,7 @@ def spawn_bar():
                         fontsize=13,
                     ),
                     widget.Image(
-                        filename="~/.config/qtile/Assets/5.png",
-                    ),
-                    widget.Image(
-                        filename="~/.config/qtile/Assets/search.png",
-                        margin=2,
-                        background=colors[0],
-                        mouse_callbacks={"Button1": search},
-                    ),
-                    widget.TextBox(
-                        fmt="Search",
-                        background=colors[0],
-                        font="JetBrains Mono Bold",
-                        fontsize=13,
-                        foreground=colors[2],
-                        mouse_callbacks={"Button1": search},
-                    ),
-                    widget.Image(
-                        filename="~/.config/qtile/Assets/4.png",
+                        filename="~/.config/qtile/Assets/1.png",
                     ),
                     widget.WindowName(
                         background=colors[1],
