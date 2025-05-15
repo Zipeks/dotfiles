@@ -76,14 +76,20 @@ def keybinds():
             lazy.spawn("sh -c ~/.config/picom/picom_togle.sh"),
             desc="toggle picom",
         ),
+        Key(
+            [mod],
+            "F2",
+            lazy.spawn("setxkbmap -option caps:escape"),
+            desc="Fix caps:escape",
+        ),
         # Key([mod], "t", lazy.spawn("sh -c ~/.config/rofi/scripts/themes"), desc='theme_switcher'),
         # C U S T O M
         Key([], "F11", lazy.spawn("amixer sset Master 5%+"), desc="Volume Up"),
         Key([], "F10", lazy.spawn("amixer sset Master 5%-"), desc="volme down"),
         Key([], "F9", lazy.spawn("pulsemixer --toggle-mute"), desc="Volume Mute"),
-        Key([], "F7", lazy.spawn("playerctl play-pause"), desc='Play- Pause'),
-        Key([], "F5", lazy.spawn("playerctl previous"), desc='playerctl'),
-        Key([], "F6", lazy.spawn("playerctl next"), desc='playerctl'),
+        Key([], "F7", lazy.spawn("playerctl play-pause"), desc="Play- Pause"),
+        Key([], "F5", lazy.spawn("playerctl previous"), desc="playerctl"),
+        Key([], "F6", lazy.spawn("playerctl next"), desc="playerctl"),
         Key(
             [],
             "XF86MonBrightnessUp",
@@ -113,4 +119,5 @@ def keybinds():
         ),
         Key([mod, "shift"], "s", lazy.spawn("flameshot gui"), desc="Screenshot"),
         Key([mod], "Escape", lazy.spawn("i3lock -e -c 000000"), desc="Lock Screnn"),
+        # Key([mod], "Escape", lazy.spawn ("i3lock -e -i "), desc="Lock Screnn"),
     ]
