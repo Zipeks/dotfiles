@@ -143,12 +143,152 @@ keymap = [
     { on = "N", run = "find_arrow --previous", desc = "Goto the previous found" },
 
     # Sorting
+    # { on = [
+    #     ",",
+    #     "m",
+    # ], run = [
+    #     "sort mtime --reverse=no",
+    #     "linemode mtime",
+    # ], desc = "Sort by modified time" },
+    # { on = [
+    #     ",",
+    #     "M",
+    # ], run = [
+    #     "sort mtime --reverse",
+    #     "linemode mtime",
+    # ], desc = "Sort by modified time (reverse)" },
+    # { on = [
+    #     ",",
+    #     "b",
+    # ], run = [
+    #     "sort btime --reverse=no",
+    #     "linemode btime",
+    # ], desc = "Sort by birth time" },
+    # { on = [
+    #     ",",
+    #     "B",
+    # ], run = [
+    #     "sort btime --reverse",
+    #     "linemode btime",
+    # ], desc = "Sort by birth time (reverse)" },
+    # { on = [
+    #     ",",
+    #     "e",
+    # ], run = "sort extension --reverse=no", desc = "Sort by extension" },
+    # { on = [
+    #     ",",
+    #     "E",
+    # ], run = "sort extension --reverse", desc = "Sort by extension (reverse)" },
+    # { on = [
+    #     ",",
+    #     "a",
+    # ], run = "sort alphabetical --reverse=no", desc = "Sort alphabetically" },
+    # { on = [
+    #     ",",
+    #     "A",
+    # ], run = "sort alphabetical --reverse", desc = "Sort alphabetically (reverse)" },
+    # { on = [
+    #     ",",
+    #     "n",
+    # ], run = "sort natural --reverse=no", desc = "Sort naturally" },
+    # { on = [
+    #     ",",
+    #     "N",
+    # ], run = "sort natural --reverse", desc = "Sort naturally (reverse)" },
+    # { on = [
+    #     ",",
+    #     "s",
+    # ], run = [
+    #     "sort size --reverse=no",
+    #     "linemode size",
+    # ], desc = "Sort by size" },
+    # { on = [
+    #     ",",
+    #     "S",
+    # ], run = [
+    #     "sort size --reverse",
+    #     "linemode size",
+    # ], desc = "Sort by size (reverse)" },
+    # { on = [
+    #     ",",
+    #     "r",
+    # ], run = "sort random --reverse=no", desc = "Sort randomly" },
+    { on = ".", run = [
+        "hidden toggle",
+        "plugin pref-by-location -- save",
+    ], desc = "Toggle the visibility of hidden files" },
+
+    # Linemode
+    { on = [
+        "m",
+        "s",
+    ], run = [
+        "linemode size",
+        "plugin pref-by-location -- save",
+    ], desc = "Linemode: size" },
+    { on = [
+        "m",
+        "p",
+    ], run = [
+        "linemode permissions",
+        "plugin pref-by-location -- save",
+    ], desc = "Linemode: permissions" },
+    { on = [
+        "m",
+        "b",
+    ], run = [
+        "linemode btime",
+        "plugin pref-by-location -- save",
+    ], desc = "Linemode: btime" },
+    { on = [
+        "m",
+        "m",
+    ], run = [
+        "linemode mtime",
+        "plugin pref-by-location -- save",
+    ], desc = "Linemode: mtime" },
+    { on = [
+        "m",
+        "o",
+    ], run = [
+        "linemode owner",
+        "plugin pref-by-location -- save",
+    ], desc = "Linemode: owner" },
+    { on = [
+        "m",
+        "n",
+    ], run = [
+        "linemode none",
+        "plugin pref-by-location -- save",
+    ], desc = "Linemode: none" },
+    # Custom size_and_mtime linemode
+    # { on = [ "u", "S" ], run = [ "linemode size_and_mtime", "plugin pref-by-location -- save" ], desc = "Show Size and Modified time" },
+
+    # Sorting
+    # Any changes during disabled state won't be saved to save file.
+    { on = [
+        ",",
+        "t",
+    ], run = "plugin pref-by-location -- toggle", desc = "Toggle auto-save preferences" },
+    { on = [
+        ",",
+        "d",
+    ], run = "plugin pref-by-location -- disable", desc = "Disable auto-save preferences" },
+    # This will reset any preference changes for the current working directory (CWD),
+    # then fall back to the predefined preferences in init.lua or yazi.toml.
+    { on = [
+        ",",
+        "R",
+    ], run = [
+        "plugin pref-by-location -- reset",
+    ], desc = "Reset preference of cwd" },
     { on = [
         ",",
         "m",
     ], run = [
         "sort mtime --reverse=no",
         "linemode mtime",
+        "plugin pref-by-location -- save",
     ], desc = "Sort by modified time" },
     { on = [
         ",",
@@ -156,6 +296,7 @@ keymap = [
     ], run = [
         "sort mtime --reverse",
         "linemode mtime",
+        "plugin pref-by-location -- save",
     ], desc = "Sort by modified time (reverse)" },
     { on = [
         ",",
@@ -163,6 +304,7 @@ keymap = [
     ], run = [
         "sort btime --reverse=no",
         "linemode btime",
+        "plugin pref-by-location -- save",
     ], desc = "Sort by birth time" },
     { on = [
         ",",
@@ -170,37 +312,59 @@ keymap = [
     ], run = [
         "sort btime --reverse",
         "linemode btime",
+        "plugin pref-by-location -- save",
     ], desc = "Sort by birth time (reverse)" },
     { on = [
         ",",
         "e",
-    ], run = "sort extension --reverse=no", desc = "Sort by extension" },
+    ], run = [
+        "sort extension --reverse=no",
+        "plugin pref-by-location -- save",
+    ], desc = "Sort by extension" },
     { on = [
         ",",
         "E",
-    ], run = "sort extension --reverse", desc = "Sort by extension (reverse)" },
+    ], run = [
+        "sort extension --reverse",
+        "plugin pref-by-location -- save",
+    ], desc = "Sort by extension (reverse)" },
     { on = [
         ",",
         "a",
-    ], run = "sort alphabetical --reverse=no", desc = "Sort alphabetically" },
+    ], run = [
+        "sort alphabetical --reverse=no",
+        "plugin pref-by-location -- save",
+    ], desc = "Sort alphabetically" },
     { on = [
         ",",
         "A",
-    ], run = "sort alphabetical --reverse", desc = "Sort alphabetically (reverse)" },
+    ], run = [
+        "sort alphabetical --reverse",
+        "plugin pref-by-location -- save",
+    ], desc = "Sort alphabetically (reverse)" },
     { on = [
         ",",
         "n",
-    ], run = "sort natural --reverse=no", desc = "Sort naturally" },
+    ], run = [
+        "sort natural --reverse=no",
+        "plugin pref-by-location -- save",
+    ], desc = "Sort naturally" },
     { on = [
         ",",
         "N",
-    ], run = "sort natural --reverse", desc = "Sort naturally (reverse)" },
+    ], run = [
+        "sort natural --reverse",
+        "plugin pref-by-location -- save",
+    ], desc = "Sort naturally (reverse)" },
+    # --sensitive=no or --sensitive
+    # { on = [ ",", "N" ], run = [ "sort natural --reverse=no --sensitive", "plugin pref-by-location -- save" ],                    desc = "Sort naturally" },
     { on = [
         ",",
         "s",
     ], run = [
         "sort size --reverse=no",
         "linemode size",
+        "plugin pref-by-location -- save",
     ], desc = "Sort by size" },
     { on = [
         ",",
@@ -208,13 +372,17 @@ keymap = [
     ], run = [
         "sort size --reverse",
         "linemode size",
+        "plugin pref-by-location -- save",
     ], desc = "Sort by size (reverse)" },
     { on = [
         ",",
         "r",
-    ], run = "sort random --reverse=no", desc = "Sort randomly" },
+    ], run = [
+        "sort random --reverse=no",
+        "plugin pref-by-location -- save",
+    ], desc = "Sort randomly" },
 
-    # Goto
+
     { on = [
         "g",
         "h",
@@ -236,7 +404,6 @@ keymap = [
         "<Space>",
     ], run = "cd --interactive", desc = "Jump interactively" },
 
-    # Tabs
     { on = "t", run = "tab_create --current", desc = "Create a new tab with CWD" },
 
     { on = "1", run = "tab_switch 0", desc = "Switch to the first tab" },
@@ -255,14 +422,17 @@ keymap = [
     { on = "{", run = "tab_swap -1", desc = "Swap current tab with previous tab" },
     { on = "}", run = "tab_swap 1", desc = "Swap current tab with next tab" },
 
-    # Tasks
     { on = "w", run = "tasks_show", desc = "Show task manager" },
 
-    # Help
     { on = "~", run = "help", desc = "Open help" },
     { on = "<F1>", run = "help", desc = "Open help" },
+
 ]
 
+# Goto
+# Tabs
+# Tasks
+# Help
 [tasks]
 
 keymap = [
@@ -484,5 +654,5 @@ keymap = [
 ]
 [[manager.prepend_keymap]]
 on = ["c", "a"]
-run = "plugin compress"
-desc = "Archive selected files"
+run = "plugin ouch"
+desc = "Compress with ouch"
