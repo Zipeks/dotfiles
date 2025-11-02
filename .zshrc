@@ -106,17 +106,15 @@ wal-tile() {
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-alias imwheel="killall imwheel; wait; imwheel"
 alias zshconfig="code ~/.zshrc"
 alias -g gp="grep"
 alias ls="eza -l" #https://github.com/eza-community/eza
 alias ..="cd .."
-alias gh='history|grep'
+alias gh=' history|grep'
 alias mv='mv -i'
 alias rm='rm -i'
 alias cp='cp -i'
 alias c='clear'
-alias spt='systemctl --user restart spotifyd &;wait;spt'
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 [ "$TERM" = "xterm-kitty" ] && alias ssh="kitty +kitten ssh"
 # alias make speller = 'rm speller;make speller'
@@ -145,3 +143,4 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 #source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+[ -f "/home/zipeks/.ghcup/env" ] && . "/home/zipeks/.ghcup/env" # ghcup-env

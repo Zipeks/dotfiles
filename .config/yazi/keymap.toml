@@ -1,6 +1,6 @@
 "$schema" = "https://yazi-rs.github.io/schemas/keymap.json"
 
-[manager]
+[mgr]
 
 keymap = [
     { on = "<Esc>", run = "escape", desc = "Exit visual mode, clear selected, or cancel search" },
@@ -652,7 +652,7 @@ keymap = [
     # Filtering
     { on = "f", run = "filter", desc = "Apply a filter for the help items" },
 ]
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on = ["c", "a"]
 run = "plugin ouch"
 desc = "Compress with ouch"
