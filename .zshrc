@@ -118,6 +118,7 @@ alias cp='cp -i'
 alias c='clear'
 alias spt='systemctl --user restart spotifyd &;wait;spt'
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+[ "$TERM" = "xterm-kitty" ] && alias ssh="kitty +kitten ssh"
 # alias make speller = 'rm speller;make speller'
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
@@ -144,5 +145,3 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 #source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-export PATH=$PATH:/home/zipeks/.spicetify
