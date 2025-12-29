@@ -95,11 +95,6 @@ source $ZSH/oh-my-zsh.sh
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-wal-tile() {
-    wal -n -i "$@"
-    feh --bg-fill "$(< "${HOME}/.cache/wal/wal")" ~/wallpapers/1920x1080/redheadsmoothie.png
-}
-
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
@@ -117,6 +112,8 @@ alias cp='cp -i'
 alias c='clear'
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 [ "$TERM" = "xterm-kitty" ] && alias ssh="kitty +kitten ssh"
+alias update="sudo pacman -Syu"
+alias cleanup="sudo pacman -Rsn $(pacman -Qtdq)"
 # alias make speller = 'rm speller;make speller'
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
@@ -144,3 +141,7 @@ export NVM_DIR="$HOME/.nvm"
 
 #source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 [ -f "/home/zipeks/.ghcup/env" ] && . "/home/zipeks/.ghcup/env" # ghcup-env
+
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/github.com
+clear
