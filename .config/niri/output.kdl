@@ -8,11 +8,19 @@
 // Settings that influence how windows are positioned and sized.
 // Find more information on the wiki:
 // https://yalter.github.io/niri/Configuration:-Layout
-output "PNP(AOC) 2460G5 0x0000CAF8" {
+// output "PNP(AOC) 2460G5 0x0000CAF8" {
+// 	mode "1920x1080@74.924"
+// 	position x=0 y=0
+// }
+// output "Iiyama North America PL2760Q 1154193801449" {
+//         mode "2560x1440@143.856"
+// 	position x=1920 y=0
+// }
+output "DP-2" {
 	mode "1920x1080@74.924"
 	position x=0 y=0
 }
-output "Iiyama North America PL2760Q 1154193801449" {
+output "DP-3" {
         mode "2560x1440@143.856"
 	position x=1920 y=0
 }
